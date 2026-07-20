@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Personal Secretary — Reminders You Can't Ignore</title>
 <meta name="description" content="Personal Secretary is a reminder app that won't let you forget. A full-screen alert, a spoken voice, repeating until you respond. For medications, watering the garden, picking up the kids — anything that matters.">
+<link rel="icon" type="image/png" href="play-store/play-store-icon-512.png">
+<link rel="apple-touch-icon" href="play-store/play-store-icon-512.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -29,7 +31,7 @@
   nav{position:sticky;top:0;z-index:50;background:rgba(255,246,200,0.85);backdrop-filter:blur(10px);border-bottom:1px solid rgba(0,0,0,0.05);}
   .nav-in{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:1100px;margin:0 auto}
   .logo{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-weight:700;font-size:22px}
-  .logo .badge{width:38px;height:38px;border-radius:11px;background:var(--ink);color:var(--yellow);display:flex;align-items:center;justify-content:center;font-size:20px}
+  .logo .badge{width:38px;height:38px;border-radius:11px;display:block;object-fit:cover}
   .nav-cta{background:var(--red);color:#fff;text-decoration:none;padding:10px 20px;border-radius:999px;font-weight:600;font-size:15px;transition:transform .15s}
   .nav-cta:hover{transform:translateY(-2px)}
   .nav-link{color:var(--ink);text-decoration:none;font-weight:600;font-size:15px}
@@ -133,7 +135,7 @@
 
 <nav>
   <div class="nav-in">
-    <div class="logo"><span class="badge">⏰</span> Personal Secretary</div>
+    <div class="logo"><img class="badge" src="play-store/play-store-icon-512.png" alt="Personal Secretary"> Personal Secretary</div>
     <div style="display:flex;align-items:center;gap:20px">
       <a href="#watch" class="nav-link">Watch demo</a>
       <a href="#download" class="nav-cta">Get the app</a>
@@ -254,7 +256,7 @@
 
 <footer>
   <div class="wrap">
-    <div class="logo"><span class="badge">⏰</span> Personal Secretary</div>
+    <div class="logo"><img class="badge" src="play-store/play-store-icon-512.png" alt="Personal Secretary"> Personal Secretary</div>
     <p>Reminders you can't ignore.</p>
     <p>Edri Shimon © 2026 · <a href="privacy.html">Privacy Policy</a> · <a href="mailto:srbigo@gmail.com">Contact</a></p>
   </div>
