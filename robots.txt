@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://srbigo-png.github.io/Reminder-Diary/sitemap.xml
