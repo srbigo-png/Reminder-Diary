@@ -99,6 +99,10 @@
   .nav-cta{background:var(--red);color:#fff;text-decoration:none;padding:10px 20px;border-radius:999px;font-weight:600;font-size:15px;transition:transform .15s}
   .nav-cta:hover{transform:translateY(-2px)}
   .nav-link{color:var(--ink);text-decoration:none;font-weight:600;font-size:15px}
+  .guide-banner{display:block;max-width:720px;width:100%;border-radius:18px;overflow:hidden;box-shadow:0 10px 30px rgba(40,30,10,.16);transition:transform .18s,box-shadow .18s}
+  .guide-banner:hover{transform:translateY(-3px);box-shadow:0 16px 38px rgba(40,30,10,.22)}
+  .guide-banner img{display:block;width:100%;height:auto}
+  @media (prefers-reduced-motion:reduce){.guide-banner{transition:none}.guide-banner:hover{transform:none}}
   /* The nav was a single non-wrapping row with no breakpoint, so on a phone the logo
      pushed every link off-screen and the guide was unreachable. Below 760px the logo
      drops its wordmark to the icon alone and the row is allowed to wrap. */
@@ -258,7 +262,11 @@
       <h2>Read the guide</h2>
       <p>Every screen explained, in your language. No jargon, no setup.</p>
     </div>
-    <div class="reveal" style="display:flex;flex-direction:column;align-items:center;gap:14px">
+    <div class="reveal" style="display:flex;flex-direction:column;align-items:center;gap:18px">
+      <a class="guide-banner" href="guide/">
+        <img src="guide/banner-he.jpg" width="1408" height="768" loading="lazy"
+             alt="Everything you wanted to learn about the app is here - tap the banner to open the user guide">
+      </a>
       <a href="guide/" class="btn-primary">Open the user guide</a>
       <p style="font-size:14px;opacity:.75;margin:0">Available in English, Hebrew, Arabic, Russian, Hindi, Spanish and Chinese.</p>
     </div>
