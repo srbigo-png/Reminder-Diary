@@ -206,6 +206,48 @@
   }
   @media (prefers-reduced-motion:reduce){.guide-banner{transition:none}.guide-banner:hover{transform:none}}
 </style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Recordatorios por voz",
+  "alternateName": "Reminders - My Voice Reminders",
+  "applicationCategory": "ProductivityApplication",
+  "applicationSubCategory": "Reminders",
+  "operatingSystem": "Android 8.0 and up",
+  "url": "https://srbigo-png.github.io/Reminder-Diary/es/",
+  "downloadUrl": "https://play.google.com/store/apps/details?id=com.remindyou.app",
+  "installUrl": "https://play.google.com/store/apps/details?id=com.remindyou.app",
+  "image": "https://srbigo-png.github.io/Reminder-Diary/play-store/og-banner-1024x500.png",
+  "screenshot": "https://srbigo-png.github.io/Reminder-Diary/play-store/og-banner-1024x500.png",
+  "description": "Cómo empezar, cómo crear un recordatorio y cómo llega hasta ti. Sin tecnicismos y sin ajustes complicados.",
+  "softwareVersion": "1.4.6",
+  "datePublished": "2026-07-28",
+  "inLanguage": [
+    "en",
+    "he",
+    "ar",
+    "ru",
+    "hi",
+    "es-ES",
+    "es-419",
+    "es-US",
+    "zh-CN",
+    "zh-TW",
+    "zh-HK"
+  ],
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock",
+    "url": "https://play.google.com/store/apps/details?id=com.remindyou.app"
+  },
+  "featureList": [
+    "Lo dices y lo recuerda",
+    "No se rinde",
+    "Todo se queda contigo"
+  ]
+}</script>
 </head>
 <body>
 
@@ -325,6 +367,31 @@
 </footer>
 
 <script>
+/* Scroll reveal. Everything with .reveal starts at opacity:0 in the stylesheet, so
+   this script is what makes it visible. If it ever fails to run, the fallback below
+   un-hides everything rather than leaving a blank page. */
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+    });
+  }, {threshold: 0.12});
+  els.forEach(function(el, i){
+    el.style.transitionDelay = (i % 4 * 0.08) + 's';
+    obs.observe(el);
+  });
+  /* Safety net: anything still hidden after two seconds is shown anyway, so a
+     scroll-observer that never fires can never hide the page's content. */
+  setTimeout(function(){
+    document.querySelectorAll('.reveal:not(.in)').forEach(function(el){ el.classList.add('in'); });
+  }, 2000);
+})();
+
 /* First visit only: send the reader to the page in their own language.
    A stored choice always wins, and clicking the language bar stores one. */
 (function(){
