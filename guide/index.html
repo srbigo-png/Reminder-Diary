@@ -333,14 +333,29 @@ function wireNav(){
     b.addEventListener('click',()=>{ try{localStorage.setItem('vr_lang',code);}catch(e){} render(code); window.scrollTo(0,0); });
     bar.appendChild(b);
   });
+  /* Resolve one language tag against the table. Exact matches are tried across ALL languages
+     before any prefix match, so es-419, es-US, zh-TW and zh-HK reach their own translation instead
+     of being swallowed by the plain 'es' and 'zh-cn' entries that come earlier in ORDER. */
+  function resolveLang(tag){
+    const n=String(tag||'').toLowerCase();
+    if(!n) return null;
+    return ORDER.find(c=>n===L[c].match || n===L[c].lang.toLowerCase())
+        || ORDER.find(c=>n.startsWith(L[c].match+'-'))
+        || null;
+  }
+
   let start=null;
-  try{ const s=localStorage.getItem('vr_lang'); if(s && L[s]) start=s; }catch(e){}
+  /* The app opens this guide with ?lang=<the language the app itself is showing>. It wins over
+     everything below, because only the app knows its own language: the browser reports the PHONE's
+     language, which differs whenever a per-app language is set, and a language tapped here once is
+     remembered by the browser forever and would otherwise keep overriding it. Opening the guide
+     directly in a browser sends no parameter and keeps the old behaviour untouched, manual choice
+     included. */
+  try{ start=resolveLang(new URLSearchParams(location.search).get('lang')); }catch(e){}
+  if(!start){ try{ const s=localStorage.getItem('vr_lang'); if(s && L[s]) start=s; }catch(e){} }
   if(!start){
     const nav=(navigator.languages||[navigator.language||'en']).map(x=>String(x).toLowerCase());
-    for(const n of nav){
-      const hit=ORDER.find(c=>n===L[c].match || n.startsWith(L[c].match+'-') || n===L[c].lang.toLowerCase());
-      if(hit){ start=hit; break; }
-    }
+    for(const n of nav){ const hit=resolveLang(n); if(hit){ start=hit; break; } }
   }
   render(start||'en');
 })();
